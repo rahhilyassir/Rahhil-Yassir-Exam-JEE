@@ -1,0 +1,22 @@
+<div class="card" *ngIf="contract">
+  <div class="card-header">Contract Details</div>
+  <div class="card-body">
+    <p><b>Id:</b> {{contract.id}}</p>
+    <p><b>Type:</b> {{contract.type}}</p>
+    <p><b>Status:</b> {{contract.status}}</p>
+    <p><b>Customer:</b> {{contract.customerDTO?.name}}</p>
+    <div class="row mb-3">
+      <div class="col"><input type="number" class="form-control" [(ngModel)]="payment.amount"></div>
+      <div class="col"><select class="form-control" [(ngModel)]="payment.type"><option>MENSUALITE</option><option>PAIEMENT_ANNUEL</option><option>PAIEMENT_EXCEPTIONNEL</option></select></div>
+      <div class="col"><input class="form-control" [(ngModel)]="payment.description"></div>
+      <div class="col"><button class="btn btn-primary" (click)="addPayment()">Add Payment</button></div>
+    </div>
+    <table class="table table-bordered" *ngIf="history">
+      <tr><th>ID</th><th>Date</th><th>Amount</th><th>Type</th><th>Description</th></tr>
+      <tr *ngFor="let p of history.paymentDTOS">
+        <td>{{p.id}}</td><td>{{p.paymentDate | date:'short'}}</td><td>{{p.amount | number:'1.2-2'}}</td><td>{{p.type}}</td><td>{{p.description}}</td>
+      </tr>
+    </table>
+    <button *ngFor="let i of pages" class="btn btn-sm me-1" [class.btn-primary]="i==page" [class.btn-outline-primary]="i!=page" (click)="gotoPage(i)">{{i}}</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">Contracts</div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <tr><th>Id</th><th>Type</th><th>Status</th><th>Amount</th><th>Customer</th><th>Actions</th></tr>
+      <tr *ngFor="let c of contracts">
+        <td>{{c.id}}</td><td>{{c.type}}</td><td>{{c.status}}</td><td>{{c.contributionAmount | number:'1.2-2'}}</td><td>{{c.customerDTO?.name}}</td>
+        <td>
+          <button class="btn btn-sm btn-info me-1" (click)="details(c)">Details</button>
+          <button class="btn btn-sm btn-success me-1" (click)="validate(c)">Validate</button>
+          <button class="btn btn-sm btn-warning me-1" (click)="cancel(c)">Cancel</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(c)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

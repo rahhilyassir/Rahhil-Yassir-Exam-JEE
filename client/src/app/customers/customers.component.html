@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">Customers</div>
+  <div class="card-body">
+    <div class="input-group mb-3">
+      <input class="form-control" [(ngModel)]="keyword">
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+    <table class="table table-bordered">
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
+      <tr *ngFor="let c of customers">
+        <td>{{c.id}}</td><td>{{c.name}}</td><td>{{c.email}}</td>
+        <td>
+          <button class="btn btn-sm btn-info me-1" (click)="details(c)">Details</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(c)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
