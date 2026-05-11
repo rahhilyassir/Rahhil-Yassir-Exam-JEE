@@ -1,18 +1,18 @@
 <div class="row justify-content-center">
-  <div class="col-md-5">
+  <div class="col-md-5 col-lg-4">
     <div class="card">
-      <div class="card-header">Authentication</div>
+      <div class="card-header">Connexion</div>
       <div class="card-body">
         <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
         <div class="mb-3">
-          <label>Username</label>
-          <input class="form-control" [(ngModel)]="username">
+          <label class="form-label">Nom d'utilisateur</label>
+          <input class="form-control" autocomplete="username" [(ngModel)]="username">
         </div>
         <div class="mb-3">
-          <label>Password</label>
-          <input type="password" class="form-control" [(ngModel)]="password">
+          <label class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" autocomplete="current-password" [(ngModel)]="password">
         </div>
-        <button class="btn btn-primary" (click)="login()">Login</button>
+        <button class="btn btn-primary w-100" (click)="login()">Se connecter</button>
       </div>
     </div>
   </div>

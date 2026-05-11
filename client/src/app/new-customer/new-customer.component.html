@@ -1,12 +1,22 @@
 <div class="card">
-  <div class="card-header">New Customer</div>
+  <div class="card-header">Nouveau client</div>
   <div class="card-body" *ngIf="mode=='new'">
-    <div class="mb-3"><label>Name</label><input class="form-control" [(ngModel)]="customer.name"></div>
-    <div class="mb-3"><label>Email</label><input class="form-control" [(ngModel)]="customer.email"></div>
-    <button class="btn btn-primary" (click)="saveCustomer()">Save</button>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Nom</label>
+        <input class="form-control" [(ngModel)]="customer.name">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input class="form-control" [(ngModel)]="customer.email">
+      </div>
+    </div>
+    <div class="mt-4">
+      <button class="btn btn-primary" (click)="saveCustomer()">Enregistrer</button>
+    </div>
   </div>
   <div class="card-body" *ngIf="mode=='confirm'">
-    <div class="alert alert-success">Customer saved with id {{customer.id}}</div>
-    <button class="btn btn-primary" (click)="newCustomer()">New</button>
+    <div class="alert alert-success">Client enregistré avec l'identifiant {{customer.id}}</div>
+    <button class="btn btn-primary" (click)="newCustomer()">Nouveau</button>
   </div>
 </div>

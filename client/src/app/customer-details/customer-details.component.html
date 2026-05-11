@@ -1,13 +1,36 @@
 <div class="card" *ngIf="customer">
-  <div class="card-header">Customer Details</div>
+  <div class="card-header">Détails du client</div>
   <div class="card-body">
-    <p><b>ID:</b> {{customer.id}}</p>
-    <p><b>Name:</b> {{customer.name}}</p>
-    <p><b>Email:</b> {{customer.email}}</p>
-    <h5>Contracts</h5>
-    <table class="table table-bordered">
-      <tr><th>Id</th><th>Type</th><th>Status</th><th>Amount</th></tr>
-      <tr *ngFor="let c of contracts"><td>{{c.id}}</td><td>{{c.type}}</td><td>{{c.status}}</td><td>{{c.contributionAmount}}</td></tr>
-    </table>
+    <div class="detail-list">
+      <div class="detail-item">
+        <div class="detail-label">ID</div>
+        <div class="detail-value">{{customer.id}}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Nom</div>
+        <div class="detail-value">{{customer.name}}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Email</div>
+        <div class="detail-value">{{customer.email}}</div>
+      </div>
+    </div>
+
+    <h5 class="mb-3">Contrats</h5>
+    <div class="table-wrap">
+      <table class="table table-hover">
+        <thead>
+          <tr><th>Id</th><th>Type</th><th>Statut</th><th>Montant</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of contracts">
+            <td>{{c.id}}</td>
+            <td>{{c.type}}</td>
+            <td><span class="status-badge {{c.status}}">{{c.status}}</span></td>
+            <td>{{c.contributionAmount | number:'1.2-2'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

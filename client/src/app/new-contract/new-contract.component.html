@@ -1,28 +1,42 @@
 <div class="card">
-  <div class="card-header">New Contract</div>
+  <div class="card-header">Nouveau contrat</div>
   <div class="card-body" *ngIf="mode=='new'">
-    <div class="mb-3"><label>Type</label><select class="form-control" [(ngModel)]="contractType"><option>CAR</option><option>HOME</option><option>HEALTH</option></select></div>
-    <div class="mb-3"><label>Customer ID</label><input type="number" class="form-control" [(ngModel)]="contract.customerId"></div>
-    <div class="mb-3"><label>Contribution Amount</label><input type="number" class="form-control" [(ngModel)]="contract.contributionAmount"></div>
-    <div class="mb-3"><label>Duration</label><input type="number" class="form-control" [(ngModel)]="contract.duration"></div>
-    <div class="mb-3"><label>Coverage Rate</label><input type="number" class="form-control" [(ngModel)]="contract.coverageRate"></div>
+    <div class="row g-3">
+      <div class="col-md-4"><label class="form-label">Type</label><select class="form-select" [(ngModel)]="contractType"><option>CAR</option><option>HOME</option><option>HEALTH</option></select></div>
+      <div class="col-md-4"><label class="form-label">ID client</label><input type="number" class="form-control" [(ngModel)]="contract.customerId"></div>
+      <div class="col-md-4"><label class="form-label">Montant de cotisation</label><input type="number" class="form-control" [(ngModel)]="contract.contributionAmount"></div>
+      <div class="col-md-6"><label class="form-label">Durée</label><input type="number" class="form-control" [(ngModel)]="contract.duration"></div>
+      <div class="col-md-6"><label class="form-label">Taux de couverture</label><input type="number" class="form-control" [(ngModel)]="contract.coverageRate"></div>
+    </div>
+
     <div *ngIf="contractType=='CAR'">
-      <div class="mb-3"><label>Registration Number</label><input class="form-control" [(ngModel)]="contract.vehicleRegistrationNumber"></div>
-      <div class="mb-3"><label>Brand</label><input class="form-control" [(ngModel)]="contract.vehicleBrand"></div>
-      <div class="mb-3"><label>Model</label><input class="form-control" [(ngModel)]="contract.vehicleModel"></div>
+      <hr>
+      <div class="row g-3">
+        <div class="col-md-4"><label class="form-label">Immatriculation</label><input class="form-control" [(ngModel)]="contract.vehicleRegistrationNumber"></div>
+        <div class="col-md-4"><label class="form-label">Marque</label><input class="form-control" [(ngModel)]="contract.vehicleBrand"></div>
+        <div class="col-md-4"><label class="form-label">Modèle</label><input class="form-control" [(ngModel)]="contract.vehicleModel"></div>
+      </div>
     </div>
     <div *ngIf="contractType=='HOME'">
-      <div class="mb-3"><label>Housing Type</label><select class="form-control" [(ngModel)]="contract.housingType"><option>APPARTEMENT</option><option>MAISON</option><option>LOCAL_COMMERCIAL</option></select></div>
-      <div class="mb-3"><label>Address</label><input class="form-control" [(ngModel)]="contract.housingAddress"></div>
-      <div class="mb-3"><label>Surface</label><input type="number" class="form-control" [(ngModel)]="contract.surface"></div>
+      <hr>
+      <div class="row g-3">
+        <div class="col-md-4"><label class="form-label">Type de logement</label><select class="form-select" [(ngModel)]="contract.housingType"><option>APPARTEMENT</option><option>MAISON</option><option>LOCAL_COMMERCIAL</option></select></div>
+        <div class="col-md-5"><label class="form-label">Adresse</label><input class="form-control" [(ngModel)]="contract.housingAddress"></div>
+        <div class="col-md-3"><label class="form-label">Surface</label><input type="number" class="form-control" [(ngModel)]="contract.surface"></div>
+      </div>
     </div>
     <div *ngIf="contractType=='HEALTH'">
-      <div class="mb-3"><label>Coverage Level</label><select class="form-control" [(ngModel)]="contract.coverageLevel"><option>BASIQUE</option><option>INTERMEDIAIRE</option><option>PREMIUM</option></select></div>
-      <div class="mb-3"><label>Covered Persons</label><input type="number" class="form-control" [(ngModel)]="contract.coveredPersons"></div>
+      <hr>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label">Niveau de couverture</label><select class="form-select" [(ngModel)]="contract.coverageLevel"><option>BASIQUE</option><option>INTERMEDIAIRE</option><option>PREMIUM</option></select></div>
+        <div class="col-md-6"><label class="form-label">Personnes couvertes</label><input type="number" class="form-control" [(ngModel)]="contract.coveredPersons"></div>
+      </div>
     </div>
-    <button class="btn btn-primary" (click)="saveContract()">Save</button>
+    <div class="mt-4">
+      <button class="btn btn-primary" (click)="saveContract()">Enregistrer</button>
+    </div>
   </div>
   <div class="card-body" *ngIf="mode=='confirm'">
-    <div class="alert alert-success">Contract saved with id {{savedContract.id}}</div>
+    <div class="alert alert-success">Contrat enregistré avec l'identifiant {{savedContract.id}}</div>
   </div>
 </div>

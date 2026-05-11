@@ -1,18 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/dashboard">Insurance App</a>
+    <a class="navbar-brand" routerLink="/dashboard">AssurManager</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto" *ngIf="authService.isAuthenticated()">
         <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/customers">Customers</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contracts">Contracts</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/new-customer">New Customer</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/new-contract">New Contract</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/customers">Clients</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contracts">Contrats</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/new-customer">Nouveau client</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/new-contract">Nouveau contrat</a></li>
       </ul>
-      <button *ngIf="authService.isAuthenticated()" class="btn btn-outline-light" (click)="logout()">Logout</button>
+      <button *ngIf="authService.isAuthenticated()" class="btn btn-outline-light" (click)="logout()">Déconnexion</button>
     </div>
   </div>
 </nav>
